@@ -17,6 +17,7 @@ func Authorization(next http.Handler) http.Handler {
 
 		var username string = r.URL.Query().Get("username")
 		var token = r.Header.Get("Authorization")
+		        log.Infof("Authorization attempt - username: %s, token: %s", username, token)
 		var err error
 
 		if username == "" {
