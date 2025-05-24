@@ -1,31 +1,31 @@
-package tools 
+package tools
 
 import (
 	"time"
 )
 
-type MockDB struct {}
+type mockDB struct{}
 
 var mockLoginDetails = map[string]LoginDetails{
-	"sivajith" : {
-		AuthToken : "123456",
-		UserName: "sivajith",
+	"sivajithms": {
+		AuthToken: "123ABC",
+		Username:  "sivajithms",
 	},
 }
 
 var mockCoinDetails = map[string]CoinDetails{
-	"sivajith" : {
-		Coins: 100,
-		UserName: "sivajith",
+	"sivajithms": {
+		Coins:    100,
+		Username: "sivajithms",
 	},
 }
 
-func (db *MockDB) GetUserLoginDetails(username string) *LoginDetails {
+func (d *mockDB) GetUserLoginDetails(username string) *LoginDetails {
+	// Simulate DB call
 	time.Sleep(time.Second * 1)
 
 	var clientData = LoginDetails{}
 	clientData, ok := mockLoginDetails[username]
-
 	if !ok {
 		return nil
 	}
@@ -33,12 +33,12 @@ func (db *MockDB) GetUserLoginDetails(username string) *LoginDetails {
 	return &clientData
 }
 
-func (db *MockDB) GetUserCoins(username string) *CoinDetails {
+func (d *mockDB) GetUserCoins(username string) *CoinDetails {
+	// Simulate DB call
 	time.Sleep(time.Second * 1)
 
 	var clientData = CoinDetails{}
 	clientData, ok := mockCoinDetails[username]
-
 	if !ok {
 		return nil
 	}
@@ -46,6 +46,6 @@ func (db *MockDB) GetUserCoins(username string) *CoinDetails {
 	return &clientData
 }
 
-func (db *MockDB) SetupDatabase() error {
+func (d *mockDB) SetupDatabase() error {
 	return nil
 }

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/avukadin/goapi/internal/handlers"
 	"github.com/go-chi/chi"
 	log "github.com/sirupsen/logrus"
+	"github.com/sivajithms/goapi/internal/handlers"
 )
 
 func main() {
